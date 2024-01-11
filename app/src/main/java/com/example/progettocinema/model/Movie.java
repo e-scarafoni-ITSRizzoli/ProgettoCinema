@@ -1,4 +1,4 @@
-package com.example.progettovolley.model;
+package com.example.progettocinema.model;
 
 public class Movie {
     private String title;

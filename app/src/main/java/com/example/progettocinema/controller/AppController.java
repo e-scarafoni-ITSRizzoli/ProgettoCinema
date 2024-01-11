@@ -1,4 +1,4 @@
-package com.example.progettovolley.controller;
+package com.example.progettocinema.controller;
 
 import android.app.Application;
 

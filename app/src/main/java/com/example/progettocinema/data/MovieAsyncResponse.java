@@ -1,7 +1,6 @@
-package com.example.progettovolley.data;
+package com.example.progettocinema.data;
 
-import com.example.progettovolley.model.Movie;
-import com.example.progettovolley.model.Post;
+import com.example.progettocinema.model.Movie;
 
 import java.util.ArrayList;
 

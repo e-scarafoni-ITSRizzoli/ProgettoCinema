@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.progettovolley"
+    namespace = "com.example.progettocinema"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.progettovolley"
+        applicationId = "com.example.progettocinema"
         minSdk = 33
         targetSdk = 34
         versionCode = 1

@@ -1,4 +1,4 @@
-package com.example.progettovolley;
+package com.example.progettocinema;
 
 import org.junit.Test;
 
