@@ -1,6 +1,9 @@
 package com.example.progettocinema.adapter;
 
+
+
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +17,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.progettocinema.Detail;
 import com.example.progettocinema.R;
 import com.example.progettocinema.model.Movie;
 import com.squareup.picasso.Picasso;
@@ -48,6 +52,9 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
             Animation animation = AnimationUtils.loadAnimation(v.getContext(), R.anim.button_press_animation);
             holder.itemView.startAnimation(animation);
 
+            Intent intent = new Intent(v.getContext(), Detail.class);
+            intent.putExtra("movieId",movies.get(position).getId());
+            v.getContext().startActivity(intent);
             if(onItemClickListener != null) {
                 onItemClickListener.onItemClick(v, position);
             }

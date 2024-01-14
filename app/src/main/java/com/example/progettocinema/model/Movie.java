@@ -5,6 +5,8 @@ public class Movie {
     private double voteAvg;
     private String imageUrl;
 
+    private int id;
+
     public Movie(String title, double voteAvg) {
         this.title = title;
         this.voteAvg = voteAvg;
@@ -32,5 +34,13 @@ public class Movie {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
