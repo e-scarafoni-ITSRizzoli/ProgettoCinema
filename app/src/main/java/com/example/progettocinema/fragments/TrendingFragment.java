@@ -12,9 +12,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.progettocinema.MainActivity;
 import com.example.progettocinema.R;
+import com.example.progettocinema.adapter.MovieAdapter;
 import com.example.progettocinema.data.MovieAsyncResponse;
 import com.example.progettocinema.data.Repository;
 import com.example.progettocinema.model.Movie;
@@ -22,6 +24,7 @@ import com.example.progettocinema.model.Movie;
 import java.util.ArrayList;
 
 public class TrendingFragment extends Fragment {
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -37,8 +40,11 @@ public class TrendingFragment extends Fragment {
         new Repository().getMovies(new MovieAsyncResponse() {
             @Override
             public void processoTerminato(ArrayList<Movie> movies) {
-                ListView listView = view.findViewById(R.id.lista_trending);
-                ArrayAdapter<Movie> arrayAdapter = new ArrayAdapter<Movie>(
+                //ListView listView = view.findViewById(R.id.lista_trending);
+                RecyclerView recyclerView = view.findViewById(R.id.lista_trending);
+                MovieAdapter adapter = new MovieAdapter(movies);
+                recyclerView.setAdapter(adapter);
+                /*ArrayAdapter<Movie> arrayAdapter = new ArrayAdapter<Movie>(
                         view.getContext(),
                         android.R.layout.simple_list_item_2,
                         android.R.id.text1,
@@ -59,7 +65,7 @@ public class TrendingFragment extends Fragment {
                 listView.setOnItemClickListener((parent, view, position, id) -> {
                     Movie movie = arrayAdapter.getItem(position);
                     Log.e("CLICK", movie.getTitle());
-                });
+                });*/
             }
 
             @Override

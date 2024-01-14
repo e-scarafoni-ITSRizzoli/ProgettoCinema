@@ -33,6 +33,7 @@ public class Repository {
                     double voteAvg = jsonMovie.getDouble("vote_average");
                     String title = jsonMovie.getString("title");
                     Movie movie = new Movie(title, voteAvg);
+                    movie.setImageUrl("https://image.tmdb.org/t/p/w500" + jsonMovie.getString("poster_path"));
                     movies.add(movie);
                 }
                 callback.processoTerminato(movies);
