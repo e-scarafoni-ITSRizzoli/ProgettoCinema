@@ -3,11 +3,9 @@ package com.example.progettocinema.data;
 import android.util.Log;
 
 import com.android.volley.Request;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.progettocinema.controller.AppController;
 import com.example.progettocinema.model.Movie;
-import com.example.progettocinema.model.Post;
 
 import org.json.JSONArray;
 import org.json.JSONException;

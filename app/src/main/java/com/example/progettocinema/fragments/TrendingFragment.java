@@ -1,39 +1,45 @@
-package com.example.progettocinema;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
+package com.example.progettocinema.fragments;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+import com.example.progettocinema.MainActivity;
+import com.example.progettocinema.R;
 import com.example.progettocinema.data.MovieAsyncResponse;
 import com.example.progettocinema.data.Repository;
-import com.example.progettocinema.fragments.TrendingFragment;
 import com.example.progettocinema.model.Movie;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class TrendingFragment extends Fragment {
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        //return super.onCreateView(inflater, container, savedInstanceState);
+        return inflater.inflate(R.layout.fragment_trending,
+                                container,
+                                false);
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-
-        /*new Repository().getMovies(new MovieAsyncResponse() {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        new Repository().getMovies(new MovieAsyncResponse() {
             @Override
             public void processoTerminato(ArrayList<Movie> movies) {
-                ListView listView = findViewById(R.id.mia_lista_view);
+                ListView listView = view.findViewById(R.id.lista_trending);
                 ArrayAdapter<Movie> arrayAdapter = new ArrayAdapter<Movie>(
-                        MainActivity.this,
+                        view.getContext(),
                         android.R.layout.simple_list_item_2,
                         android.R.id.text1,
                         movies
@@ -60,13 +66,6 @@ public class MainActivity extends AppCompatActivity {
             public void processoFallito(Exception e) {
                 Log.d("Errore", e.getMessage());
             }
-        });*/
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, TrendingFragment.class, null)
-                .setReorderingAllowed(true)
-                .addToBackStack("name")
-                .commit();
+        });
     }
-
 }
