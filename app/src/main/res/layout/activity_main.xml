@@ -20,12 +20,14 @@
         />
     <!-- android:name="com.example.tabview.RunningFragment"-->
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/bottomNav"
+        app:backgroundTint="#3949AB"
+        app:itemIconTint="#E8EAF6"
+        app:itemTextColor="#C5CAE9"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/bottom_nav"
-        />
+        app:menu="@menu/bottom_nav" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -13,14 +13,16 @@
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="#B61313"
-        android:backgroundTint="#DD3A3A">
+        android:background="#3949AB"
+        android:backgroundTint="@color/colorPrimary">
 
         <TextView
             android:id="@+id/titleDetail"
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:text="TextView"
+            android:textAlignment="center"
+            android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -35,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:backgroundTint="#00BD4848"
-            android:src="@drawable/back_arrow"
+            android:src="@drawable/back_arrow_white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -48,9 +50,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="56dp"
+        android:backgroundTint="#5C6BC0"
         android:drawableLeft="@drawable/favorite"
-        android:drawableTint="#FFFFFF"
 
+        android:drawableTint="#FFFFFF"
         android:text="Add to Favorites"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

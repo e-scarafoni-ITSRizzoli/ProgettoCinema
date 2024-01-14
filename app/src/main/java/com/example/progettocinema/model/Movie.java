@@ -28,7 +28,8 @@ public class Movie {
     }
 
     public String getVoteAvg() {
-        return ""+voteAvg;
+        String truncated = String.format("%.1f", voteAvg);
+        return truncated;
     }
 
     public void setVoteAvg(double voteAvg) {

@@ -17,6 +17,7 @@ import com.squareup.picasso.Picasso;
 
 public class Detail extends AppCompatActivity {
     ActivityDetailBinding binding;
+    Movie loadedMovie;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +31,7 @@ public class Detail extends AppCompatActivity {
             @Override
             public void processoTerminato(Movie movie) {
                 //tv.setText("Title: " + movie.getTitle());
+                loadedMovie = movie;
                 binding.titleDetail.setText(movie.getTitle());
                 binding.description.setText("Description: \n" +movie.getDescription());
                 binding.releaseDate.setText("Release date: " + movie.getReleaseDate());
@@ -65,14 +67,12 @@ public class Detail extends AppCompatActivity {
             binding.buttonFav.setText("Remove");
         }
         binding.buttonFav.setOnClickListener(v -> {
-            Movie m = new Movie("prova", 10);
-            m.setId(id);
             //Log.d("favs", Favorites.toMyString());
-            if(Favorites.isInFavorites(m)) {
-                Favorites.removeMovie(m);
+            if(Favorites.isInFavorites(loadedMovie)) {
+                Favorites.removeMovie(loadedMovie);
                 binding.buttonFav.setText("Add");
             } else {
-                Favorites.addMovie(m);
+                Favorites.addMovie(loadedMovie);
                 binding.buttonFav.setText("Remove");
             }
         });

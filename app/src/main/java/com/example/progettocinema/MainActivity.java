@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.example.progettocinema.data.MovieAsyncResponse;
 import com.example.progettocinema.data.Repository;
 import com.example.progettocinema.fragments.FavoriteFragment;
+import com.example.progettocinema.fragments.SearchFragment;
 import com.example.progettocinema.fragments.TrendingFragment;
 import com.example.progettocinema.model.Movie;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -23,11 +24,22 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
+    private Class returnFragmentClass(String title) {
+        if(title.equals("Trending")) {
+            return TrendingFragment.class;
+        }
+        if(title.equals("Favorites")) {
+            return FavoriteFragment.class;
+        }
+        if(title.equals("Search")) {
+            return SearchFragment.class;
+        }
+        return TrendingFragment.class;
+    }
     private void applicaFragment(String title) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, title.equals("Trending") ? TrendingFragment.class : FavoriteFragment.class, null)
+                .replace(R.id.fragment_container, returnFragmentClass(title), null)
                 .setReorderingAllowed(true)
                 .commit();
     }

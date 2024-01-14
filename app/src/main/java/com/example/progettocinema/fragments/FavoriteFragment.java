@@ -33,6 +33,7 @@ public class FavoriteFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         new Repository().getMovies(new MovieAsyncResponse() {
             @Override
             public void processoTerminato(ArrayList<Movie> movies) {

@@ -3,6 +3,11 @@
     <style name="Base.Theme.ProgettoVolley" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="backgroundColor">@color/backgroundColor</item>
     </style>
 
     <style name="Theme.ProgettoVolley" parent="Base.Theme.ProgettoVolley" />
