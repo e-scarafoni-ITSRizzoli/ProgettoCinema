@@ -4,8 +4,8 @@ import com.example.progettocinema.model.Movie;
 
 import java.util.ArrayList;
 
-public interface MovieAsyncResponse {
-    void processoTerminato(ArrayList<Movie> movies);
+public interface DetailAsyncResponse {
+    void processoTerminato(Movie movie);
 
     void processoFallito(Exception e);
 }

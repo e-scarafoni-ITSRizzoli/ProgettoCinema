@@ -1,11 +1,18 @@
 package com.example.progettocinema.model;
 
+import java.util.ArrayList;
+
 public class Movie {
     private String title;
     private double voteAvg;
     private String imageUrl;
 
     private int id;
+
+    private String description;
+    private String releaseDate;
+    private String tagLine;
+    private ArrayList<String> genres = new ArrayList<>();
 
     public Movie(String title, double voteAvg) {
         this.title = title;
@@ -42,5 +49,37 @@ public class Movie {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getReleaseDate() {
+        return releaseDate;
+    }
+
+    public void setReleaseDate(String releaseDate) {
+        this.releaseDate = releaseDate;
+    }
+
+    public String getTagLine() {
+        return tagLine;
+    }
+
+    public void setTagLine(String tagLine) {
+        this.tagLine = tagLine;
+    }
+
+    public ArrayList<String> getGenres() {
+        return genres;
+    }
+
+    public void setGenres(ArrayList<String> genres) {
+        this.genres = genres;
     }
 }

@@ -48,5 +48,35 @@ public class Repository {
         AppController.getInstance().addToRequestQueue(request);
     }
 
+    public void getMovieDetails(int id, final DetailAsyncResponse callback) {
+        String urlMovie = "https://api.themoviedb.org/3/movie/" + id + "?api_key=059b4ea3747f81799d697699f25eb33c";
+        JsonObjectRequest request = new JsonObjectRequest(
+                Request.Method.GET, urlMovie, null, response -> {
+            try {
+                Log.e("TRY", "INSIDE TRY");
+                Movie movie = new Movie(response.getString("title"), response.getDouble("vote_average"));
+                movie.setId(id);
+                movie.setImageUrl("https://image.tmdb.org/t/p/w500" + response.getString("poster_path"));
+                movie.setDescription(response.getString("overview"));
+                movie.setReleaseDate(response.getString("release_date"));
+                movie.setTagLine(response.getString("tagline"));
+                JSONArray genres = response.getJSONArray("genres");
+                ArrayList<String> listGenres = new ArrayList<>();
+                for(int j = 0; j < genres.length(); j++) {
+                    JSONObject genre = genres.getJSONObject(j);
+                    listGenres.add(genre.getString("name"));
+                }
+                movie.setGenres(listGenres);
+                callback.processoTerminato(movie);
+            } catch (JSONException e) {
+                e.printStackTrace();
+                callback.processoFallito(e);
+            }
+        }, error -> {
+            Log.d("Main", "Error");
+        });
+        AppController.getInstance().addToRequestQueue(request);
+    }
+
 
 }
