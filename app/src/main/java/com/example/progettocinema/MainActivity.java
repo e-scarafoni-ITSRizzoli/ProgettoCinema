@@ -15,13 +15,22 @@ import android.widget.TextView;
 
 import com.example.progettocinema.data.MovieAsyncResponse;
 import com.example.progettocinema.data.Repository;
+import com.example.progettocinema.fragments.FavoriteFragment;
 import com.example.progettocinema.fragments.TrendingFragment;
 import com.example.progettocinema.model.Movie;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    private void applicaFragment(String title) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, title.equals("Trending") ? TrendingFragment.class : FavoriteFragment.class, null)
+                .setReorderingAllowed(true)
+                .commit();
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,12 +70,12 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("Errore", e.getMessage());
             }
         });*/
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, TrendingFragment.class, null)
-                .setReorderingAllowed(true)
-                .addToBackStack("name")
-                .commit();
+        applicaFragment("Trending");
+        BottomNavigationView bottomNav = findViewById(R.id.bottomNav);
+        bottomNav.setOnItemSelectedListener(item -> {
+            applicaFragment(item.getTitle().toString());
+            return true;
+        });
     }
 
 }

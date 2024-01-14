@@ -1,4 +1,73 @@
 package com.example.progettocinema.fragments;
 
-public class FavoriteFragment {
+import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.progettocinema.R;
+import com.example.progettocinema.adapter.MovieAdapter;
+import com.example.progettocinema.data.MovieAsyncResponse;
+import com.example.progettocinema.data.Repository;
+import com.example.progettocinema.model.Favorites;
+import com.example.progettocinema.model.Movie;
+
+import java.util.ArrayList;
+
+public class FavoriteFragment extends Fragment {
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        //return super.onCreateView(inflater, container, savedInstanceState);
+        return inflater.inflate(R.layout.fragment_favorite,
+                container,
+                false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        new Repository().getMovies(new MovieAsyncResponse() {
+            @Override
+            public void processoTerminato(ArrayList<Movie> movies) {
+                //ListView listView = view.findViewById(R.id.lista_trending);
+                RecyclerView recyclerView = view.findViewById(R.id.lista_favorite);
+                MovieAdapter adapter = new MovieAdapter(Favorites.getFavorites());
+                recyclerView.setAdapter(adapter);
+                /*ArrayAdapter<Movie> arrayAdapter = new ArrayAdapter<Movie>(
+                        view.getContext(),
+                        android.R.layout.simple_list_item_2,
+                        android.R.id.text1,
+                        movies
+                ) {
+                    @NonNull
+                    @Override
+                    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+                        View view = super.getView(position, convertView, parent);
+                        TextView text1 = (TextView) view.findViewById(android.R.id.text1);
+                        TextView text2 = (TextView) view.findViewById(android.R.id.text2);
+                        text1.setText(movies.get(position).getTitle());
+                        text2.setText(movies.get(position).getVoteAvg());
+                        return view;
+                    }
+                };
+                listView.setAdapter(arrayAdapter);
+                listView.setOnItemClickListener((parent, view, position, id) -> {
+                    Movie movie = arrayAdapter.getItem(position);
+                    Log.e("CLICK", movie.getTitle());
+                });*/
+            }
+
+            @Override
+            public void processoFallito(Exception e) {
+                Log.d("Errore", e.getMessage());
+            }
+        });
+    }
 }
