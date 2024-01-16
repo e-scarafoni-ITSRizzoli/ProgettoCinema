@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="textColorNight"> #FFFFFF</color>
-    <color name="colorPrimaryNight">#3949AB</color>
-    <color name="colorPrimaryDarkNight">#283593</color>
-    <color name="colorAccentNight">#7E57C2</color>
-    <color name="backgroundColorNight">#333333</color>
-</resources>
