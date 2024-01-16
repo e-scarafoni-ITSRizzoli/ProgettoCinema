@@ -82,7 +82,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
         public void bind(Movie movie) {
             name.setText(movie.getTitle());
-            avg.setText(movie.getVoteAvg());
+            avg.setText("Users rating: " + movie.getVoteAvg());
             String url = movie.getImageUrl();
             Picasso.get()
                             .load(url)

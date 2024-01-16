@@ -34,21 +34,20 @@
         </androidx.cardview.widget.CardView>
 
         <TextView
+            android:id="@+id/text_view_project_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-black"
-            android:textColor="#222"
-            android:id="@+id/text_view_project_title"
-            android:textSize="18sp"
             android:layout_alignTop="@+id/card_view_project_icon_container"
             android:layout_toEndOf="@+id/card_view_project_icon_container"
-            tools:text = "Titolo"
-            />
+            android:fontFamily="sans-serif-black"
+            android:textColor="@color/textColor"
+            android:textSize="18sp"
+            tools:text="Titolo" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif"
-            android:textColor="#222"
+            android:textColor="@color/textColor"
             android:id="@+id/text_view_project_description"
             android:textSize="14sp"
             android:layout_below="@+id/text_view_project_title"

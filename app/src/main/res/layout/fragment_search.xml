@@ -8,23 +8,46 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textViewSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark"
+        android:background="#B2EBF2"
+        android:backgroundTint="@color/colorPrimaryDark"
         android:paddingVertical="30dp"
-        android:text="Trending Now"
+        android:text="Search"
         android:textAlignment="center"
         android:textColor="@color/white"
+
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <EditText
+        android:id="@+id/inputSearch"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Find a movie..."
+        app:layout_constraintBottom_toTopOf="@+id/lista_search"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewSearch" />
+
+    <TextView
+        android:id="@+id/searchTextPlaceholder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Your results will appear here"
+        android:textStyle="italic"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputSearch"></TextView>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/lista_trending"
+        android:id="@+id/lista_search"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -32,7 +55,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/inputSearch"
+        app:layout_constraintVertical_bias="1.0"
         tools:listitem="@layout/item_layout"></androidx.recyclerview.widget.RecyclerView>
 
 
