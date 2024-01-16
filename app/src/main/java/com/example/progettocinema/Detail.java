@@ -64,16 +64,16 @@ public class Detail extends AppCompatActivity {
         });
         // Button buttonFav = findViewById(R.id.buttonFav);
         if(Favorites.isInFavorites(id)) {
-            binding.buttonFav.setText("Remove");
+            binding.buttonFav.setText("Remove from Favorites");
         }
         binding.buttonFav.setOnClickListener(v -> {
             //Log.d("favs", Favorites.toMyString());
             if(Favorites.isInFavorites(loadedMovie)) {
                 Favorites.removeMovie(loadedMovie);
-                binding.buttonFav.setText("Add");
+                binding.buttonFav.setText("Add to Favorites");
             } else {
                 Favorites.addMovie(loadedMovie);
-                binding.buttonFav.setText("Remove");
+                binding.buttonFav.setText("Remove from Favorites");
             }
         });
     }

@@ -18,7 +18,7 @@ public class Repository {
     String urlPost = "https://api.themoviedb.org/3/movie/popular?api_key=059b4ea3747f81799d697699f25eb33c";
     public void getMovies(final MovieAsyncResponse callback) {
         ArrayList<Movie> movies = new ArrayList<>();
-        movies.add(new Movie("Ciao", 10.0));
+        //movies.add(new Movie("Ciao", 10.0));
         Log.e("BEFORE REQUEST", "before request");
 
 

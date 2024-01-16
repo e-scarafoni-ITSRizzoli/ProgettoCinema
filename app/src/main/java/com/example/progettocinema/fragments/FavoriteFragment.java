@@ -41,28 +41,6 @@ public class FavoriteFragment extends Fragment {
                 RecyclerView recyclerView = view.findViewById(R.id.lista_favorite);
                 MovieAdapter adapter = new MovieAdapter(Favorites.getFavorites());
                 recyclerView.setAdapter(adapter);
-                /*ArrayAdapter<Movie> arrayAdapter = new ArrayAdapter<Movie>(
-                        view.getContext(),
-                        android.R.layout.simple_list_item_2,
-                        android.R.id.text1,
-                        movies
-                ) {
-                    @NonNull
-                    @Override
-                    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-                        View view = super.getView(position, convertView, parent);
-                        TextView text1 = (TextView) view.findViewById(android.R.id.text1);
-                        TextView text2 = (TextView) view.findViewById(android.R.id.text2);
-                        text1.setText(movies.get(position).getTitle());
-                        text2.setText(movies.get(position).getVoteAvg());
-                        return view;
-                    }
-                };
-                listView.setAdapter(arrayAdapter);
-                listView.setOnItemClickListener((parent, view, position, id) -> {
-                    Movie movie = arrayAdapter.getItem(position);
-                    Log.e("CLICK", movie.getTitle());
-                });*/
             }
 
             @Override

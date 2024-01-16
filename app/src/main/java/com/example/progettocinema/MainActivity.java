@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.example.progettocinema.data.MovieAsyncResponse;
 import com.example.progettocinema.data.Repository;
 import com.example.progettocinema.fragments.FavoriteFragment;
+import com.example.progettocinema.fragments.MapsFragment;
 import com.example.progettocinema.fragments.SearchFragment;
 import com.example.progettocinema.fragments.TrendingFragment;
 import com.example.progettocinema.model.Movie;
@@ -34,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
         if(title.equals("Search")) {
             return SearchFragment.class;
         }
+        if(title.equals("Maps")) {
+            return MapsFragment.class;
+        }
         return TrendingFragment.class;
     }
     private void applicaFragment(String title) {
@@ -48,40 +52,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        /*new Repository().getMovies(new MovieAsyncResponse() {
-            @Override
-            public void processoTerminato(ArrayList<Movie> movies) {
-                ListView listView = findViewById(R.id.mia_lista_view);
-                ArrayAdapter<Movie> arrayAdapter = new ArrayAdapter<Movie>(
-                        MainActivity.this,
-                        android.R.layout.simple_list_item_2,
-                        android.R.id.text1,
-                        movies
-                ) {
-                    @NonNull
-                    @Override
-                    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-                        View view = super.getView(position, convertView, parent);
-                        TextView text1 = (TextView) view.findViewById(android.R.id.text1);
-                        TextView text2 = (TextView) view.findViewById(android.R.id.text2);
-                        text1.setText(movies.get(position).getTitle());
-                        text2.setText(movies.get(position).getVoteAvg());
-                        return view;
-                    }
-                };
-                listView.setAdapter(arrayAdapter);
-                listView.setOnItemClickListener((parent, view, position, id) -> {
-                    Movie movie = arrayAdapter.getItem(position);
-                    Log.e("CLICK", movie.getTitle());
-                });
-            }
-
-            @Override
-            public void processoFallito(Exception e) {
-                Log.d("Errore", e.getMessage());
-            }
-        });*/
         applicaFragment("Trending");
         BottomNavigationView bottomNav = findViewById(R.id.bottomNav);
         bottomNav.setOnItemSelectedListener(item -> {
